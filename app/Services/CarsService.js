@@ -1,35 +1,30 @@
 import { ProxyState } from "../AppState.js";
 import Car from "../Models/Car.js";
 
-class CarsService{
-
- 
-  constructor(){
+class CarsService {
+  constructor() {
   }
 
-  createCar(rawCar) {
-  //  let newCar = new Car(rawCar)
-  //  ProxyState.cars = [...ProxyState.cars, newCar]
-
+  createCar(newCar) {
     let temp = ProxyState.cars
-    temp.push(new Car(rawCar))
+    temp.push(new Car(newCar))
     ProxyState.cars = temp
-
   }
 
   bid(id) {
     let temp = ProxyState.cars
-    let car = temp.find(c=> c.id === id)
+    let car = temp.find(c => c.id === id)
     car.price += 100
     ProxyState.cars = temp
   }
 
   deleteCar(id) {
     let temp = ProxyState.cars
-    let carIndex = temp.findIndex(car =>  car.id == id)
+    let carIndex = temp.findIndex(car => car.id == id)
     temp.splice(carIndex, 1)
     ProxyState.cars = temp
   }
+  
 }
 
 export const carsService = new CarsService()
