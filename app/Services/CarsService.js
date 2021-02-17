@@ -5,12 +5,10 @@ class CarsService{
 
  
   constructor(){
-    console.log("cars service");
   }
 
   createCar(rawCar) {
   //  let newCar = new Car(rawCar)
-  //  console.log(newCar)
   //  ProxyState.cars = [...ProxyState.cars, newCar]
 
     let temp = ProxyState.cars
