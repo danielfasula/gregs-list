@@ -7,9 +7,11 @@ class HousesService {
     }
 
     createHouse(newHouse) {
-        let temp = ProxyState.houses
-        temp.push(new House(newHouse))
-        ProxyState.houses = temp
+        // let temp = ProxyState.houses
+        // temp.push(new House(newHouse))
+        // ProxyState.houses = temp
+        // ONE LINER
+        ProxyState.houses = [...ProxyState.houses, new House(newHouse)]
     }
 
     bid(id) {
@@ -25,7 +27,7 @@ class HousesService {
         temp.splice(houseIndex, 1)
         ProxyState.houses = temp
     }
-    
+
 }
 
 export const housesService = new HousesService()

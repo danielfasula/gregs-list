@@ -6,9 +6,10 @@ class CarsService {
   }
 
   createCar(newCar) {
-    let temp = ProxyState.cars
-    temp.push(new Car(newCar))
-    ProxyState.cars = temp
+    // let temp = ProxyState.cars
+    // temp.push(new Car(newCar))
+    // ProxyState.cars = temp
+    ProxyState.cars = [...ProxyState.cars, new Car(newCar)]
   }
 
   bid(id) {
@@ -24,7 +25,7 @@ class CarsService {
     temp.splice(carIndex, 1)
     ProxyState.cars = temp
   }
-  
+
 }
 
 export const carsService = new CarsService()

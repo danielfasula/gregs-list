@@ -7,9 +7,10 @@ class JobsService {
     }
 
     createJob(newJob) {
-        let temp = ProxyState.jobs
-        temp.push(new Job(newJob))
-        ProxyState.jobs = temp
+        // let temp = ProxyState.jobs
+        // temp.push(new Job(newJob))
+        // ProxyState.jobs = temp
+        ProxyState.jobs = [...ProxyState.jobs, new Job(newJob)]
     }
     apply(id) {
         let temp = ProxyState.jobs
