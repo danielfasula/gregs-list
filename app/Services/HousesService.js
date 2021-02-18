@@ -22,10 +22,13 @@ class HousesService {
     }
 
     deleteHouse(id) {
-        let temp = ProxyState.houses
-        let houseIndex = temp.findIndex(h => h.id == id)
-        temp.splice(houseIndex, 1)
-        ProxyState.houses = temp
+
+        ProxyState.houses = ProxyState.houses.filter(h => h.id != id)
+    
+        // let temp = ProxyState.houses
+        // let houseIndex = temp.findIndex(h => h.id == id)
+        // temp.splice(houseIndex, 1)
+        // ProxyState.houses = temp
     }
 
 }

@@ -19,10 +19,12 @@ class JobsService {
         ProxyState.jobs = temp
     }
     deleteJob(id) {
-        let temp = ProxyState.jobs
-        let jobIndex = temp.findIndex(j => j.id == id)
-        temp.splice(jobIndex, 1)
-        ProxyState.jobs = temp
+        ProxyState.jobs = ProxyState.jobs.filter(j => j.id != id)
+
+        // let temp = ProxyState.jobs
+        // let jobIndex = temp.findIndex(j => j.id == id)
+        // temp.splice(jobIndex, 1)
+        // ProxyState.jobs = temp
     }
 }
 

@@ -20,10 +20,15 @@ class CarsService {
   }
 
   deleteCar(id) {
-    let temp = ProxyState.cars
-    let carIndex = temp.findIndex(car => car.id == id)
-    temp.splice(carIndex, 1)
-    ProxyState.cars = temp
+    ProxyState.cars = ProxyState.cars.filter(c => c.id != id)
+
+    // let temp = ProxyState.cars
+    // let carIndex = temp.findIndex(car => car.id == id)
+    // temp.splice(carIndex, 1)
+    // ProxyState.cars = temp
+ 
+    // one liner
+
   }
 
 }
