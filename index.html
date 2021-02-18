@@ -16,8 +16,10 @@
     <header>
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                <button class="nav-link active" id="nav-cars-tab" data-bs-toggle="tab" data-bs-target="#nav-cars"
-                    type="button" role="tab" aria-controls="nav-cars" aria-selected="true">Cars</button>
+                <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home"
+                    type="button" role="tab" aria-controls="nav-home" aria-selected="true">Home</button>
+                <button class="nav-link" id="nav-cars-tab" data-bs-toggle="tab" data-bs-target="#nav-cars" type="button"
+                    role="tab" aria-controls="nav-cars" aria-selected="true">Cars</button>
                 <button class="nav-link" id="nav-houses-tab" data-bs-toggle="tab" data-bs-target="#nav-houses"
                     type="button" role="tab" aria-controls="nav-houses" aria-selected="false">Houses</button>
                 <button class="nav-link" id="nav-jobs-tab" data-bs-toggle="tab" data-bs-target="#nav-jobs" type="button"
@@ -26,7 +28,16 @@
         </nav>
     </header>
     <main class="container-fluid tab-content" id="nav-tabContent">
-        <div class="tab-pane fade show active" id="nav-cars" role="tabpanel" aria-labelledby="nav-cars-tab">
+        <div class="tab-pane fade show active text-center" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+            <h1 class="mt-4"> <b> Welcome To Greg's List! </b> </h1>
+            <h3 class="mt-4">Here you can buy or sell Homes or Vehicles. Also create or view current Job Listings. </h3>
+            <h3> Click on a specific tab to find out more!
+            </h3>
+        </div>
+
+
+
+        <div class="tab-pane fade" id="nav-cars" role="tabpanel" aria-labelledby="nav-cars-tab">
             <div class="row ">
                 <div class="col">
                     <h1>Cars</h1>
