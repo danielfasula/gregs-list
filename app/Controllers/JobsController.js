@@ -26,8 +26,8 @@ export default class JobsController {
         }
         jobsService.createJob(newJob)
     }
-    apply(id) {
-        jobsService.apply(id)
+    apply() {
+        jobsService.apply()
     }
     deleteJob(id) {
         jobsService.deleteJob(id)

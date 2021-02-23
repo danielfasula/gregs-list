@@ -1,35 +1,74 @@
 import { ProxyState } from "../AppState.js";
 import Car from "../Models/Car.js";
+import { api } from './AxiosService.js'
 
 class CarsService {
   constructor() {
+    this.getCars()
   }
 
-  createCar(newCar) {
-    // let temp = ProxyState.cars
-    // temp.push(new Car(newCar))
-    // ProxyState.cars = temp
-    ProxyState.cars = [...ProxyState.cars, new Car(newCar)]
+  async getCars() {
+    try {
+      const res = await api.get('cars')
+      ProxyState.cars = res.data.map(rawCarData => new Car(rawCarData))
+    } catch (error) {
+      console.error(error);
+    }
   }
 
-  bid(id) {
-    let temp = ProxyState.cars
-    let car = temp.find(c => c.id === id)
+  async createCar(newCar) {
+    try {
+      const res = await api.post('cars', newCar)
+      ProxyState.cars = [...ProxyState.cars, new Car(res.data)]
+    } catch (error) {
+      console.error(error);
+    }
+    swal({
+      text: 'New Car Listing Added!',
+      icon: 'success'
+    })
+  }
+
+  async bid(id) {
+    let car = ProxyState.cars.find(c => c.id === id)
     car.price += 100
-    ProxyState.cars = temp
+    try {
+      await api.put('cars/' + id, car)
+      ProxyState.cars = ProxyState.cars
+    } catch (error) {
+      console.error(error);
+    }
+    swal({
+      text: 'Your bid has been sent!',
+      icon: 'success'
+    })
   }
 
-  deleteCar(id) {
-    ProxyState.cars = ProxyState.cars.filter(c => c.id != id)
+  async deleteCar(id) {
+    swal({
+      title: 'Are you sure you want to delete this listing?',
+      buttons: ['Nvm, still wanna sell it', 'Get Rid of It!'],
+      dangerMode: true,
+    }).then(async (willDelete) => {
+      if (willDelete) {
+        try {
+          const res = await api.delete('cars/' + id)
+          this.getCars()
+        } catch (error) {
+          console.error(error);
+        }
+        swal({
+          text: 'Deleted Listing!',
+          icon: 'error'
+        })
+      } else {
+        swal('This listing is unharmed by your actions')
 
-    // let temp = ProxyState.cars
-    // let carIndex = temp.findIndex(car => car.id == id)
-    // temp.splice(carIndex, 1)
-    // ProxyState.cars = temp
- 
-    // one liner
-
+      }
+    })
   }
+
+
 
 }
 

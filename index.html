@@ -28,7 +28,8 @@
         </nav>
     </header>
     <main class="container-fluid tab-content" id="nav-tabContent">
-        <div class="tab-pane fade show active text-center" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+        <div class="tab-pane fade show active text-center mt-5" id="nav-home" role="tabpanel"
+            aria-labelledby="nav-home-tab">
             <h1 class="mt-4"> <b> Welcome To Greg's List! </b> </h1>
             <h3 class="mt-4">Here you can buy or sell Homes or Vehicles. Also create or view current Job Listings. </h3>
             <h3> Click on a specific tab to find out more!
@@ -37,7 +38,7 @@
 
 
 
-        <div class="tab-pane fade" id="nav-cars" role="tabpanel" aria-labelledby="nav-cars-tab">
+        <div class="tab-pane fade mt-5" id="nav-cars" role="tabpanel" aria-labelledby="nav-cars-tab">
             <div class="row ">
                 <div class="col">
                     <h1>Cars</h1>
@@ -63,10 +64,6 @@
                                 placeholder="Description" aria-describedby="helpId">
                         </div>
                         <div class="form-group">
-                            <input type="number" name="miles" id="miles" class="form-control" placeholder="Miles"
-                                aria-describedby="helpId">
-                        </div>
-                        <div class="form-group">
                             <input type="text" name="imgUrl" id="imgUrl" class="form-control" placeholder="ImgUrl"
                                 aria-describedby="helpId">
                         </div>
@@ -74,10 +71,10 @@
                     </form>
                 </div>
             </div>
-            <div class="row" id="cars">
+            <div class="row justify-content-center" id="cars">
             </div>
         </div>
-        <div class="tab-pane fade" id="nav-houses" role="tabpanel" aria-labelledby="nav-houses-tab">
+        <div class="tab-pane fade mt-5" id="nav-houses" role="tabpanel" aria-labelledby="nav-houses-tab">
             <div class="row">
                 <div class="col">
                     <h1>Houses</h1>
@@ -114,9 +111,9 @@
                     </form>
                 </div>
             </div>
-            <div class="row" id="houses"></div>
+            <div class="row justify-content-center" id="houses"></div>
         </div>
-        <div class="tab-pane fade" id="nav-jobs" role="tabpanel" aria-labelledby="nav-jobs-tab">
+        <div class="tab-pane fade mt-5" id="nav-jobs" role="tabpanel" aria-labelledby="nav-jobs-tab">
             <div class="row">
                 <div class="col">
                     <h1>Jobs</h1>
@@ -145,12 +142,12 @@
                     </form>
                 </div>
             </div>
-            <div class="row" id="jobs"></div>
+            <div class="row justify-content-center" id="jobs"></div>
         </div>
         </div>
     </main>
 
-
+    <!--  -->
 
 
 
@@ -164,19 +161,11 @@
 
 
 
-
-    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script> -->
+    <script src='https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js'></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
         crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="app/main.js" type="module"></script>
 </body>
 

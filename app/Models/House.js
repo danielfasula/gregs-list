@@ -1,7 +1,6 @@
-import { generateId } from '../Utils/GenerateId.js'
 
 export default class House {
-    constructor({ bedrooms, bathrooms, levels, imgUrl, year, price, description }) {
+    constructor({ bedrooms, bathrooms, levels, imgUrl, year, price, description, id, _id }) {
         this.bedrooms = bedrooms
         this.bathrooms = bathrooms
         this.levels = levels
@@ -9,12 +8,12 @@ export default class House {
         this.description = description
         this.imgUrl = imgUrl
         this.year = year
-        this.id = generateId()
+        this.id = _id || id
     }
 
     get Template() {
         return /*html*/ `
-         <div class="card col-2 mt-5">
+         <div class="card mt-5 col-8 col-lg-3 mx-3">
   <i class="fa fa-trash fa-2x text-danger d-flex align-self-end pointer" onclick="app.housesController.deleteHouse('${this.id}')" aria-hidden="true"></i>
   <img class="card-img-top" src="${this.imgUrl}" alt="">
   <div class="card-body">
@@ -22,6 +21,7 @@ export default class House {
       <p class="card-text">Year : ${this.year}</p>
       <p>${this.bedrooms} Beds - ${this.bathrooms} Baths</p>
       <p>Levels : ${this.levels}</p>
+      <p>${this.description}</p>
       
       <button class="btn btn-success" onclick="app.housesController.bid('${this.id}')">Bid</button>
   </div>
