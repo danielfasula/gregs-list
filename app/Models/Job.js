@@ -1,12 +1,13 @@
 
 export default class Job {
-    constructor({ company, jobTitle, hours, rate, description, _id, id }) {
+    constructor({ company, jobTitle, hours, rate, description, _id, id, applicants }) {
         this.company = company
         this.jobTitle = jobTitle
         this.hours = hours
         this.rate = rate
         this.description = description
         this.id = _id || id
+        this.applicants = applicants || 0
     }
 
     get Template() {
@@ -17,10 +18,12 @@ export default class Job {
   <div class="card-body">
       <h4 class="card-title text-center">${this.company}</h4>
       <p class="card-text mt-3">${this.jobTitle}</p>
-      <p>$${this.rate}per hour/ ${this.hours} hours per week</p>
+      <p>$${this.rate} per hour/ ${this.hours} hours per week</p>
       <p>Job Detail: ${this.description}</p>
+      <p class="text-right"><small>Applicants: ${this.applicants}</small></p>
       
-    <button class="btn btn-success" onclick="app.jobsController.apply()">Apply</button>
+      
+    <button class="btn btn-success" onclick="app.jobsController.apply('${this.id}')">Apply</button>
   </div>
   </div>
 </div>

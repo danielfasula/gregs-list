@@ -27,12 +27,21 @@ class JobsService {
             icon: 'success'
         })
     }
-    apply() {
+    async apply(id) {
+        let job = ProxyState.jobs.find(j => j.id == id)
+        job.applicants++
+        try {
+            await api.put('jobs/' + id, job)
+            ProxyState.jobs = ProxyState.jobs
+        } catch (error) {
+            console.error(error);
+        }
         swal({
             title: 'Your application has been sent. Please wait to hear back from this company!',
             text: 'Probably not, tho..',
             icon: 'success'
         })
+
     }
     async deleteJob(id) {
 
